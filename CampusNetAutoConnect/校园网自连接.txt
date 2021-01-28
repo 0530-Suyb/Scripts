@@ -1,0 +1,8 @@
+该程序需将vbs文件创建快捷键后放入目录 C:\Users\用户\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup 下
+（win+R打开运行操作框，输入shell:startup即可）
+
+代码分析（基于python，电脑需安装python环境）：
+在while死循环中定期检测网络，若断网发起连接，若网络正常sleep 10s，往复循环
+检测网络通过subprocess库下的run函数执行 ping www.baidu.com，验证是否能够ping通，网络正常返0
+发起连接通过requests库下的post函数，向校园网登录网址发送请求参数验证登录
+（所发送的数据：F12→网络→执行一次登录→HTTP方法为POST的数据包中"请求"下"表单数据"）
